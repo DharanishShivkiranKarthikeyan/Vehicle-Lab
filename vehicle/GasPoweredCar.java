@@ -1,6 +1,6 @@
 package vehicle;
 
-public abstract class GasPoweredCar extends Car{
+abstract class GasPoweredCar extends Car{
     private String make;
     private String model;
     private double startingOdometerValue;
