@@ -31,7 +31,7 @@ negative*/
     drive given the remaining fuel/energy reserves.)
     @throws IllegalArgumentException if miles is negative.*/
     public boolean canDrive(double miles){
-       return true; //Bro how am i supposed to know how much fuel this jit has and his mileage. I feel like its supposed to be abstract
+       return getRemainingRange()>miles; //Bro how am i supposed to know how much fuel this jit has and his mileage. I feel like its supposed to be abstract
     }
     /** Drives the full given number of miles.
     @throws IllegalArgumentException if miles is negative or if miles is
@@ -73,12 +73,16 @@ negative*/
     is attempted. */
     public int roadTrip(List<Double> milesEachDay){
         int d = 0;
+        double total = 0;
+        double range = getRemainingRange();
         for(double i:milesEachDay){
             if (i<0){throw new IllegalArgumentException();}
-            if(this.OdometerValue-i<0){this.OdometerValue = 0;return d;}
-            this.OdometerValue -= i;
+            if(range-i<0){this.OdometerValue +=total;return d;}
+            range -= i;
+            total +=i;
             d++;       
         }
+        this.OdometerValue+=total;
         return d;
     }
 }
