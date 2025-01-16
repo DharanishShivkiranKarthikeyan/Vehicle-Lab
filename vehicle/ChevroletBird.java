@@ -3,14 +3,9 @@ package vehicle;
 public class ChevroletBird extends ElectricCar implements Flying{
     /** Chevrolet Birds have a 250-mile range on a full charge. They
 start with their wings retracted. */
-public ChevroletBird(double startingOdometerValue){
-    super("Chevrolet", "Bird", startingOdometerValue, 250);
-}
+public ChevroletBird(double startingOdometerValue)
 /** Defaults startingOdometerValue to 0. */
-public ChevroletBird(){
-    super("Chevrolet", "Bird", 340);
-
-}
+public ChevroletBird()
 /** Returns whether the wings are currently extended. */
 public boolean checkWingsExtended()
 /** Drives just like all other Electric Cars, except make sure that
