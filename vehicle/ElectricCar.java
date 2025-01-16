@@ -1,9 +1,7 @@
 package vehicle;
 
 public abstract class ElectricCar extends Car{
-    public String make;
-    public String model;
-    public double startingOdometerValue;
+   
     public double milesOnMaxCharge;
     public double currentMiles;
    
@@ -26,6 +24,7 @@ public ElectricCar (String make, String model, double
 milesOnMaxCharge){
     super(make, model);
     this.milesOnMaxCharge = milesOnMaxCharge; 
+    OdometerValue = 0;
     if(milesOnMaxCharge > 0) {
         throw new IllegalArgumentException("milesOnMaxCharge must be positive ");
     }
@@ -37,6 +36,7 @@ milesOnMaxCharge){
 current charge.*/
 public void drive(double miles){
     currentMiles  = currentMiles - miles;
+    OdometerValue+=miles;
 }
 /** Returns how many more miles the car can currently go without
 recharging. */
@@ -54,6 +54,9 @@ public void recharge(){
 /** Decreases the amount of energy in the battery based by the number
 of miles passed as an argument. */
 protected void decreaseCharge(double miles){
-    milesOnMaxCharge-miles;
+    milesOnMaxCharge = milesOnMaxCharge - miles;
 }
+
+
+
 }
