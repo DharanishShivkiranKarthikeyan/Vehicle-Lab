@@ -30,16 +30,19 @@ public class FordFrivolous extends GasPoweredCar implements SelfDriving, Flying{
 
     /** Same as for Chevrolet Bird. */
     public boolean canFly(double miles) {
-
+        if(miles < 0) {
+            throw new IllegalArgumentException();
+        }
+        return getRemainingRange()>miles;
     }
 
     /** Same as for Chevrolet Bird except the Ford Frivolous doesn’t need
     wings to fly! But, flying uses triple the amount of gas as driving,
     per mile traveled. Ouch! */
     public void fly(double miles) {
-        if(miles < 0 || miles > getRemainingRange()) {
+        if(miles < 0 || miles > getRemainingRange() / 3) {
             throw new IllegalArgumentException();
         }
-
+        decreaseFuelLevel(miles);
     }
 }
