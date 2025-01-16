@@ -45,6 +45,9 @@ public class ChevroletBird extends ElectricCar implements Flying{
     @throws IllegalArgumentException if miles exceeds the remaining range
     of the car. */
     public void fly(double miles) {
-        
+        if(miles < 0 || miles > getRemainingRange()) {
+            throw new IllegalArgumentException();
+        }
+        currentMiles  = currentMiles - miles;
     }
 }
