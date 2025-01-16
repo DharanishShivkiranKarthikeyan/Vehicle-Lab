@@ -3,9 +3,9 @@ package vehicle;
 import java.util.List;
 
 public abstract class Car{
-    private double OdometerValue;
-    private final String model;
-    private final String make;
+    public double OdometerValue;
+    public final String model;
+    public final String make;
     
     /** Creates a car with starting total miles on the odometer.
     @throws IllegalArgumentException if startingOdometerValue is
