@@ -10,7 +10,7 @@ abstract class GasPoweredCar extends Car{
     public GasPoweredCar(String make, String model, double startingOdometerValue, double mpg, double fuelCapacityGallons) {
         super(make, model, startingOdometerValue);
         if(mpg <= 0 || fuelCapacityGallons <= 0) {
-            throw new IllegalArgumentException("mpg and fuelCapacityGalons must be ");
+            throw new IllegalArgumentException("mpg and fuelCapacityGallons must be ");
         }
         this.mpg = mpg;
         this.fuelCapacityGallons = fuelCapacityGallons;
