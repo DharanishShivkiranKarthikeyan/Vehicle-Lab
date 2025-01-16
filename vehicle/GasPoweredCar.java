@@ -1,6 +1,6 @@
 package vehicle;
 
-abstract class GasPoweredCar extends Car{
+public abstract class GasPoweredCar extends Car{
     private double mpg;
     private double fuelCapacityGallons;
     private double fuelLevel;
@@ -30,7 +30,7 @@ abstract class GasPoweredCar extends Car{
         if(miles < 0 || miles > getRemainingRange()) {
             throw new IllegalArgumentException();
         }
-        super.OdometerValue += miles;
+        OdometerValue += miles;
         decreaseFuelLevel(miles);
     }
     

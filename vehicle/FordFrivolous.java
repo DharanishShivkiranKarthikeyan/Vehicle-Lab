@@ -18,7 +18,14 @@ public class FordFrivolous extends GasPoweredCar implements SelfDriving, Flying{
         if(miles < 0) {
             throw new IllegalArgumentException();
         }
-        
+        if(miles <= getRemainingRange() / 2) {
+            OdometerValue += miles;
+            decreaseFuelLevel(miles * 2);
+        }
+        if(miles > getRemainingRange() / 2) {
+            OdometerValue += getRemainingRange();
+            decreaseFuelLevel(getRemainingRange() * 2);
+        }
     }
 
     /** Same as for Chevrolet Bird. */
@@ -30,6 +37,9 @@ public class FordFrivolous extends GasPoweredCar implements SelfDriving, Flying{
     wings to fly! But, flying uses triple the amount of gas as driving,
     per mile traveled. Ouch! */
     public void fly(double miles) {
+        if(miles < 0 || miles > getRemainingRange()) {
+            throw new IllegalArgumentException();
+        }
 
     }
 }
