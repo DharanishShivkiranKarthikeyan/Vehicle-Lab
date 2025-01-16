@@ -7,9 +7,7 @@ public ChevroletBird(double startingOdometerValue)
 /** Defaults startingOdometerValue to 0. */
 public ChevroletBird()
 /** Returns whether the wings are currently extended. */
-public boolean checkWingsExtended(){
-    
-}
+public boolean checkWingsExtended()
 /** Drives just like all other Electric Cars, except make sure that
 you retract your wings first!
 Coding tip: Write this method to re-use the behavior of the
