@@ -39,6 +39,14 @@ can’t make it all the way, it drives as far as it can before running
 out of fuel.
 @throws IllegalArgumentException if miles is negative. */
 public void driveAutonomously(double miles) {
-    
-}
+    if(miles < 0) {
+        throw new IllegalArgumentException();
+    }
+    if(miles <= getRemainingRange()) {
+        OdometerValue += miles;
+    }
+    if(miles > getRemainingRange()) {
+        OdometerValue += getRemainingRange();
+    }
+    }
 }
