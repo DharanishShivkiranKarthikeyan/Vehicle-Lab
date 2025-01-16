@@ -6,11 +6,12 @@ public class ChevroletBird extends ElectricCar implements Flying {
      * start with their wings retracted.
      */
     public ChevroletBird(double startingOdometerValue) {
-
+        super("Chevrolet", "Bird", startingOdometerValue, 250);
     }
 
     /** Defaults startingOdometerValue to 0. */
     public ChevroletBird() {
+        super("Chevrolet", "Bird", 340);
 
     }
 
