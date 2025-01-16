@@ -57,14 +57,5 @@ protected void decreaseCharge(double miles){
     milesOnMaxCharge = milesOnMaxCharge - miles;
 }
 
-/** Driving autonomously works the same as regular driving does.
-Very convenient! Except it doesn’t deal with fueling at all – if you
-can’t make it all the way, it drives as far as it can before running
-out of fuel.
-@throws IllegalArgumentException if miles is negative. */
-public void driveAutonomously(double miles){
-    
-}
-
 
 }
