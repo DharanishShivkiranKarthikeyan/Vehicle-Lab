@@ -6,20 +6,31 @@ public class ChevroletBird extends ElectricCar implements Flying{
     public ChevroletBird(double startingOdometerValue) {
         
     }
+
     /** Defaults startingOdometerValue to 0. */
     public ChevroletBird() {
 
     }
+
     /** Returns whether the wings are currently extended. */
-    public boolean checkWingsExtended()
+    public boolean checkWingsExtended() {
+
+    }
+    
     /** Drives just like all other Electric Cars, except make sure that
     you retract your wings first!
     Coding tip: Write this method to re-use the behavior of the
     superclass drive. Don’t copy-and-paste the same code here.*/
-    public void drive(double miles)
+    public void drive(double miles) {
+
+    }
+    
     /** Flying equivalent of canDrive.
     @throws IllegalArgumentException if miles is negative. */
-    public boolean canFly(double miles)
+    public boolean canFly(double miles) {
+
+    }
+    
     /** Flying extends the wings! It’s basically the same as driving, and
     uses the same amount of gas as driving per mile – but since wheels
     aren’t involved, it doesn’t alter the odometer. Note that fly()
@@ -30,5 +41,7 @@ public class ChevroletBird extends ElectricCar implements Flying{
     @throws IllegalArgumentException if miles is negative.
     @throws IllegalArgumentException if miles exceeds the remaining range
     of the car. */
-    public void fly(double miles)
+    public void fly(double miles) {
+
+    }
 }
