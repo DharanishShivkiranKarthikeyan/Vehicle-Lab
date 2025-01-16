@@ -18,13 +18,13 @@ public class FordFrivolous extends GasPoweredCar implements SelfDriving, Flying{
         if(miles < 0) {
             throw new IllegalArgumentException();
         }
-        if(miles * 2 <= getRemainingRange()) {
+        if(miles <= getRemainingRange() / 2) {
             super.OdometerValue += miles;
             decreaseFuelLevel(miles * 2);
         }
-        if(miles * 2 > getRemainingRange()) {
+        if(miles > getRemainingRange() / 2) {
             super.OdometerValue += getRemainingRange();
-            decreaseFuelLevel(getRemainingRange());
+            decreaseFuelLevel(getRemainingRange() * 2);
         }
     }
 

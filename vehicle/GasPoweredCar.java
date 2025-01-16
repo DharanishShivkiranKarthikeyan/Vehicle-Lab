@@ -1,6 +1,6 @@
 package vehicle;
 
-abstract class GasPoweredCar extends Car{
+public abstract class GasPoweredCar extends Car{
     private double mpg;
     private double fuelCapacityGallons;
     private double fuelLevel;
