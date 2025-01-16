@@ -30,7 +30,7 @@ public abstract class GasPoweredCar extends Car{
         if(miles < 0 || miles > getRemainingRange()) {
             throw new IllegalArgumentException();
         }
-        super.OdometerValue += miles;
+        OdometerValue += miles;
         decreaseFuelLevel(miles);
     }
     
