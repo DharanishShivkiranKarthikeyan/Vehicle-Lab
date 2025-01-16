@@ -28,9 +28,12 @@ public class ChevroletBird extends ElectricCar implements Flying{
     /** Flying equivalent of canDrive.
     @throws IllegalArgumentException if miles is negative. */
     public boolean canFly(double miles) {
-
+        if(miles < 0) {
+            throw new IllegalArgumentException();
+        }
+        return getRemainingRange()>miles;
     }
-    
+
     /** Flying extends the wings! It’s basically the same as driving, and
     uses the same amount of gas as driving per mile – but since wheels
     aren’t involved, it doesn’t alter the odometer. Note that fly()
@@ -42,6 +45,6 @@ public class ChevroletBird extends ElectricCar implements Flying{
     @throws IllegalArgumentException if miles exceeds the remaining range
     of the car. */
     public void fly(double miles) {
-
+        
     }
 }
