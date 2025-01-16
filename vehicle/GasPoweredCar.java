@@ -1,10 +1,6 @@
 package vehicle;
 
 abstract class GasPoweredCar extends Car{
-    private String make;
-    private String model;
-    private double startingOdometerValue;
-    private double currentOdometerValue;
     private double mpg;
     private double fuelCapacityGallons;
     private double fuelLevel;
@@ -16,10 +12,6 @@ abstract class GasPoweredCar extends Car{
         if(mpg <= 0 || fuelCapacityGallons <= 0) {
             throw new IllegalArgumentException("mpg and fuelCapacityGalons must be ");
         }
-        this.make = make;
-        this.model = model;
-        this.startingOdometerValue = startingOdometerValue;
-        this.currentOdometerValue = startingOdometerValue;
         this.mpg = mpg;
         this.fuelCapacityGallons = fuelCapacityGallons;
         this.fuelLevel = fuelCapacityGallons;
@@ -38,7 +30,7 @@ abstract class GasPoweredCar extends Car{
         if(miles < 0 || miles > getRemainingRange()) {
             throw new IllegalArgumentException();
         }
-        currentOdometerValue += miles;
+        super.OdometerValue += miles;
         decreaseFuelLevel(miles);
     }
     
