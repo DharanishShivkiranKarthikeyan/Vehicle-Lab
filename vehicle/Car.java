@@ -32,7 +32,7 @@ negative*/
     @throws IllegalArgumentException if miles is negative.*/
     public boolean canDrive(double miles){
         if(miles<0){throw new IllegalArgumentException();}
-       return getRemainingRange()>miles; //Bro how am i supposed to know how much fuel this jit has and his mileage. I feel like its supposed to be abstract
+       return getRemainingRange()>miles;
     }
     /** Drives the full given number of miles.
     @throws IllegalArgumentException if miles is negative or if miles is
