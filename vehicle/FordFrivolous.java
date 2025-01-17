@@ -22,9 +22,9 @@ public class FordFrivolous extends GasPoweredCar implements SelfDriving, Flying{
             OdometerValue += miles;
             decreaseFuelLevel(miles * 2);
         }
-        if(miles > getRemainingRange() / 2) {
-            OdometerValue += getRemainingRange();
-            decreaseFuelLevel(getRemainingRange() * 2);
+        else {
+            OdometerValue += getRemainingRange() / 2;
+            decreaseFuelLevel(getRemainingRange());
         }
     }
 
@@ -33,7 +33,7 @@ public class FordFrivolous extends GasPoweredCar implements SelfDriving, Flying{
         if(miles < 0) {
             throw new IllegalArgumentException();
         }
-        return getRemainingRange()>miles;
+        return getRemainingRange() / 3 >= miles;
     }
 
     /** Same as for Chevrolet Bird except the Ford Frivolous doesn’t need
@@ -43,6 +43,6 @@ public class FordFrivolous extends GasPoweredCar implements SelfDriving, Flying{
         if(miles < 0 || miles > getRemainingRange() / 3) {
             throw new IllegalArgumentException();
         }
-        decreaseFuelLevel(miles);
+        decreaseFuelLevel(miles * 3);
     }
 }
