@@ -14,23 +14,22 @@ public ElectricCar(String make, String model, double startingOdometerValue, doub
     if(startingOdometerValue < 0){
         throw new IllegalArgumentException("odometer must be positive ");
     }
-    this.milesOnMaxCharge = milesOnMaxCharge; 
-    currentMiles = milesOnMaxCharge;
 
-    if(milesOnMaxCharge < 0) {
+    if(milesOnMaxCharge <= 0) {
         throw new IllegalArgumentException("milesOnMaxCharge must be positive ");
     }
+    this.milesOnMaxCharge = milesOnMaxCharge; 
+    currentMiles = milesOnMaxCharge;
 }
 /** Defaults startingOdometerValue to 0.
 @throws IllegalArgumentException if milesOnMaxCharge is nonpositive.*/
-public ElectricCar (String make, String model, double
-milesOnMaxCharge){
+public ElectricCar (String make, String model, double milesOnMaxCharge){
     super(make, model);
-    this.milesOnMaxCharge = milesOnMaxCharge; 
-    OdometerValue = 0;
-    if(milesOnMaxCharge < 0) {
+    if(milesOnMaxCharge <= 0) {
         throw new IllegalArgumentException("milesOnMaxCharge must be positive ");
     }
+    this.milesOnMaxCharge = milesOnMaxCharge; 
+    this.currentMiles = milesOnMaxCharge;
 
 }
 /** Drives the full given number of miles.
@@ -44,11 +43,9 @@ public void drive(double miles){
     }
     if(!super.canDrive(miles)){
         throw new IllegalArgumentException("out of range");
-    }else{
-        currentMiles  = currentMiles - miles;
-        OdometerValue+=miles;
     }
-    
+    currentMiles  = currentMiles - miles;
+        OdometerValue+=miles;
 }
 /** Returns how many more miles the car can currently go without
 recharging. */
@@ -66,9 +63,12 @@ public void recharge(){
 /** Decreases the amount of energy in the battery based by the number
 of miles passed as an argument. */
 protected void decreaseCharge(double miles){
-    milesOnMaxCharge = milesOnMaxCharge - miles;
-    if(milesOnMaxCharge < 0){
-        throw new IllegalArgumentException("can't be negative");
+    if (miles < 0) {
+        throw new IllegalArgumentException("Miles cannot be negative");
+    }
+    currentMiles -= miles;
+    if (currentMiles < 0) {
+        throw new IllegalArgumentException("Not enough charge");
     }
 }
 
