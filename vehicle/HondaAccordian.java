@@ -1,9 +1,11 @@
 package vehicle;
 
 public class HondaAccordian extends GasPoweredCar{
+    private int modelYear;
     /** modelYear specifies the year this car was made. Honda cares about that stuff. All Honda Accordian models have 14.5 gallon tanks and 33.2 MPG. */
     public HondaAccordian(double startingOdometerValue, int modelYear) {
-        super("Honda", modelYear + "Accordian", startingOdometerValue, 33.2, 14.5);
+        super("Honda", "Accordian", startingOdometerValue, 33.2, 14.5);
+        this.modelYear = modelYear;
     }
     /** Defaults startingOdometerValue to 0. */
     public HondaAccordian(int year) {
@@ -12,6 +14,6 @@ public class HondaAccordian extends GasPoweredCar{
     /** Prints out the model year, make and model, and odometer miles. Ex: "2019 Honda Accordian (<miles> mi)"
     Coding tip: Write this method to re-use the behavior of the superclass toString. Don’t copy-and-paste the same code here. */
     public String toString() {
-        return super.toString();
+        return String.format("%d %s %s (%.1f mi)", modelYear, getMake(), getModel(), getOdometerMiles());
     }
 }
