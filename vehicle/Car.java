@@ -31,6 +31,7 @@ negative*/
     drive given the remaining fuel/energy reserves.)
     @throws IllegalArgumentException if miles is negative.*/
     public boolean canDrive(double miles){
+        if(miles<0){throw new IllegalArgumentException();}
        return getRemainingRange()>miles; //Bro how am i supposed to know how much fuel this jit has and his mileage. I feel like its supposed to be abstract
     }
     /** Drives the full given number of miles.
@@ -42,7 +43,7 @@ negative*/
     Odometer miles should be rounded to 1 decimal place. If miles is a
     whole number, ".0" should still display. */
     public String toString(){
-        return String.format("<%s and %s> (<miles> %.1f)\n",this.make,this.model,this.OdometerValue);
+        return String.format("%s %s (%.1f mi)", getMake(), getModel(), OdometerValue);
     }
     /** Returns how many miles have been driven so far (odometer). */
     public double getOdometerMiles(){
