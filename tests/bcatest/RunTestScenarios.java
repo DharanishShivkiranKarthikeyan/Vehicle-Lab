@@ -16,7 +16,7 @@ public class RunTestScenarios {
 		String directory = packageName.replace(".", "/");
 
 		// Creates a new File instance for the given directory.
-		File f = new File(directory);
+		File f = new File("tests/" +directory);
 
 		// Populates the array with names of files and directories
 		String[] filenames = f.list();
