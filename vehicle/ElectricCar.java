@@ -11,7 +11,9 @@ public abstract class ElectricCar extends Car{
 public ElectricCar(String make, String model, double startingOdometerValue, double milesOnMaxCharge){
     
     super(make, model, startingOdometerValue);
-    
+    if(startingOdometerValue < 0){
+        throw new IllegalArgumentException("odometer must be positive ");
+    }
     this.milesOnMaxCharge = milesOnMaxCharge; 
     currentMiles = milesOnMaxCharge;
 
@@ -36,8 +38,17 @@ milesOnMaxCharge){
 @throws IllegalArgumentException if miles is too high given the
 current charge.*/
 public void drive(double miles){
-    currentMiles  = currentMiles - miles;
-    OdometerValue+=miles;
+
+    if(miles < 0){
+        throw new IllegalArgumentException("miles is negative ");
+    }
+    if(!super.canDrive(miles)){
+        throw new IllegalArgumentException("out of range");
+    }else{
+        currentMiles  = currentMiles - miles;
+        OdometerValue+=miles;
+    }
+    
 }
 /** Returns how many more miles the car can currently go without
 recharging. */
@@ -56,6 +67,9 @@ public void recharge(){
 of miles passed as an argument. */
 protected void decreaseCharge(double miles){
     milesOnMaxCharge = milesOnMaxCharge - miles;
+    if(milesOnMaxCharge < 0){
+        throw new IllegalArgumentException("can't be negative");
+    }
 }
 
 
