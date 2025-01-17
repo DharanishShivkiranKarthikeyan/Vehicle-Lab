@@ -11,10 +11,11 @@ public abstract class ElectricCar extends Car{
 public ElectricCar(String make, String model, double startingOdometerValue, double milesOnMaxCharge){
     
     super(make, model, startingOdometerValue);
+    
     this.milesOnMaxCharge = milesOnMaxCharge; 
     currentMiles = milesOnMaxCharge;
 
-    if(milesOnMaxCharge > 0) {
+    if(milesOnMaxCharge < 0) {
         throw new IllegalArgumentException("milesOnMaxCharge must be positive ");
     }
 }
@@ -25,7 +26,7 @@ milesOnMaxCharge){
     super(make, model);
     this.milesOnMaxCharge = milesOnMaxCharge; 
     OdometerValue = 0;
-    if(milesOnMaxCharge > 0) {
+    if(milesOnMaxCharge < 0) {
         throw new IllegalArgumentException("milesOnMaxCharge must be positive ");
     }
 
