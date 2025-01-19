@@ -45,7 +45,7 @@ public void drive(double miles){
         throw new IllegalArgumentException("out of range");
     }
     currentMiles  = currentMiles - miles;
-        OdometerValue+=miles;
+    OdometerValue+=miles;
 }
 /** Returns how many more miles the car can currently go without
 recharging. */
