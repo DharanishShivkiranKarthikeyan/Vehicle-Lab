@@ -31,7 +31,7 @@ public class TeslaModelZ extends ElectricCar implements SelfDriving{
     implement Car.toString()
     */
     public String toString(){
-        return "Tesla" + getModel() + "(" + OdometerValue + ")"; 
+        return "Tesla " + getModel() + " (" + OdometerValue + " mi)"; 
     }
     /** Driving autonomously works the same as regular driving does.
     Very convenient! Except it doesn’t deal with fueling at all – if you
@@ -42,11 +42,12 @@ public class TeslaModelZ extends ElectricCar implements SelfDriving{
         if(miles < 0) {
             throw new IllegalArgumentException();
         }
-        if(miles <= getRemainingRange()) {
+        if(miles <= currentMiles) {
+            currentMiles -= miles;
             OdometerValue += miles;
-        }
-        if(miles > getRemainingRange()) {
-            OdometerValue += getRemainingRange();
+        } else{
+            OdometerValue += currentMiles;
+            currentMiles = 0;
         }
     }
 }

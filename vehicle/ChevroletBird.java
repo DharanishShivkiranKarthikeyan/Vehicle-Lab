@@ -13,7 +13,6 @@ public class ChevroletBird extends ElectricCar implements Flying {
     /** Defaults startingOdometerValue to 0. */
     public ChevroletBird() {
         this(0);
-
     }
 
     /** Returns whether the wings are currently extended. */
@@ -28,6 +27,9 @@ public class ChevroletBird extends ElectricCar implements Flying {
      * superclass drive. Don’t copy-and-paste the same code here.
      */
     public void drive(double miles) {
+        if(miles < 0 || miles > currentMiles) {
+            throw new IllegalArgumentException();
+        }
         if(wings){
             wings = false;
         }
@@ -43,7 +45,7 @@ public class ChevroletBird extends ElectricCar implements Flying {
         if (miles < 0) {
             throw new IllegalArgumentException();
         }
-        return canDrive(miles);
+        return miles <= currentMiles;
     }
 
     /**
@@ -67,7 +69,5 @@ public class ChevroletBird extends ElectricCar implements Flying {
             wings = true;
         }
         decreaseCharge(miles);
-        
-
     }
 }

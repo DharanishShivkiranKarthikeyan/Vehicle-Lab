@@ -37,15 +37,11 @@ public ElectricCar (String make, String model, double milesOnMaxCharge){
 @throws IllegalArgumentException if miles is too high given the
 current charge.*/
 public void drive(double miles){
-
-    if(miles < 0){
-        throw new IllegalArgumentException("miles is negative ");
+    if(miles < 0 || miles > currentMiles) {
+        throw new IllegalArgumentException();
     }
-    if(!super.canDrive(miles)){
-        throw new IllegalArgumentException("out of range");
-    }
-    currentMiles  = currentMiles - miles;
-    OdometerValue+=miles;
+    currentMiles -= miles;
+    OdometerValue += miles;
 }
 /** Returns how many more miles the car can currently go without
 recharging. */

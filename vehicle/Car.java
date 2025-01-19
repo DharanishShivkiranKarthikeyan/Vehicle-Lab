@@ -34,7 +34,7 @@ negative*/
         if(miles < 0){
             throw new IllegalArgumentException("miles is negative");
         }
-       return getRemainingRange()>miles; //Bro how am i supposed to know how much fuel this jit has and his mileage. I feel like its supposed to be abstract
+       return getRemainingRange() >= miles; //Bro how am i supposed to know how much fuel this jit has and his mileage. I feel like its supposed to be abstract
     }
     /** Drives the full given number of miles.
     @throws IllegalArgumentException if miles is negative or if miles is
