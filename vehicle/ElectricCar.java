@@ -2,8 +2,8 @@ package vehicle;
 
 public abstract class ElectricCar extends Car{
    
-    public double milesOnMaxCharge;
-    public double currentMiles;
+    private double milesOnMaxCharge;
+    private double currentMiles;
    
     /** Note: Car begins with a full charge (and thus range).
 @throws IllegalArgumentException if milesOnMaxCharge is nonpositive.*/
@@ -41,7 +41,7 @@ public void drive(double miles){
         throw new IllegalArgumentException();
     }
     currentMiles -= miles;
-    OdometerValue += miles;
+    addMiles(miles);
 }
 /** Returns how many more miles the car can currently go without
 recharging. */

@@ -27,7 +27,7 @@ public class ChevroletBird extends ElectricCar implements Flying {
      * superclass drive. Don’t copy-and-paste the same code here.
      */
     public void drive(double miles) {
-        if(miles < 0 || miles > currentMiles) {
+        if(miles < 0 || miles > getRemainingRange()) {
             throw new IllegalArgumentException();
         }
         if(wings){
@@ -45,7 +45,7 @@ public class ChevroletBird extends ElectricCar implements Flying {
         if (miles < 0) {
             throw new IllegalArgumentException();
         }
-        return miles <= currentMiles;
+        return miles <= getRemainingRange();
     }
 
     /**

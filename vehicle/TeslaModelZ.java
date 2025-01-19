@@ -23,7 +23,7 @@ public class TeslaModelZ extends ElectricCar implements SelfDriving{
     /** Returns the model and model number concatenated together. For
     example, returns "Z70" for modelNum 70. */
     public String getModel(){
-        return model + getModelNum(); 
+        return (super.getModel() + getModelNum());
     }
     /** Prints out the make, model, model number, and odometer miles.
     Ex: "Tesla Z70 (30.0 mi)"
@@ -31,7 +31,7 @@ public class TeslaModelZ extends ElectricCar implements SelfDriving{
     implement Car.toString()
     */
     public String toString(){
-        return "Tesla " + getModel() + " (" + OdometerValue + " mi)"; 
+        return "Tesla " + getModel() + " (" + getOdometerMiles() + " mi)"; 
     }
     /** Driving autonomously works the same as regular driving does.
     Very convenient! Except it doesn’t deal with fueling at all – if you
@@ -42,12 +42,12 @@ public class TeslaModelZ extends ElectricCar implements SelfDriving{
         if(miles < 0) {
             throw new IllegalArgumentException();
         }
-        if(miles <= currentMiles) {
-            currentMiles -= miles;
-            OdometerValue += miles;
+        if(miles <= getRemainingRange()) {
+            decreaseCharge(miles);
+            addMiles(miles);
         } else{
-            OdometerValue += currentMiles;
-            currentMiles = 0;
+            addMiles(getRemainingRange());
+            decreaseCharge(miles);
         }
     }
 }
