@@ -43,11 +43,9 @@ public class TeslaModelZ extends ElectricCar implements SelfDriving{
             throw new IllegalArgumentException();
         }
         if(miles <= getRemainingRange()) {
-            decreaseCharge(miles);
-            addMiles(miles);
+            drive(miles);
         } else{
-            addMiles(getRemainingRange());
-            decreaseCharge(miles);
+            drive(getRemainingRange());
         }
     }
 }

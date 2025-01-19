@@ -62,10 +62,10 @@ protected void decreaseCharge(double miles){
     if (miles < 0) {
         throw new IllegalArgumentException("Miles cannot be negative");
     }
-    currentMiles -= miles;
     if (currentMiles < 0) {
         throw new IllegalArgumentException("Not enough charge");
     }
+    currentMiles -= miles;
 }
 
 
